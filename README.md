@@ -13,16 +13,17 @@ Sršen, the company's cofounder, would like an analysis of Bellabeat’s availab
 
 1. What are some trends in smart device usage?
 2. How can these trends help influence Bellabeat marketing strategy?
+3. How could these trends help influence Bellabeat marketing strategy?
 
 ### About the Data
 
-The data for this case study comes from [Fitbit Fitness Tracker Data](https://www.kaggle.com/datasets/arashnic/fitbit), a public domain dataset available on Kaggle. It contains personal fitness tracker information from 30 FitBit users. These 30 Fitbit users consented to the submission of all personal tracker data contained in this dataset. 
+The data for this case study comes from [Fitbit Fitness Tracker Data](https://www.kaggle.com/datasets/arashnic/fitbit), a public domain dataset available on Kaggle. It contains personal fitness tracker information from 35 FitBit users. These 35 Fitbit users consented to the submission of all personal tracker data contained in this dataset. 
 
 I will import the data set from Kaggle into RStudio where I can clean, filter, and analyze the data. 
 
 ### Limitations
 
-- Sample size: 30 people is not a large enough sample to be representative of all FitBit users
+- Sample size: 35 people is not a large enough sample to be representative of all FitBit users
 - Outdated: The dataset contains data from a one month period in 2016 only. For a deeper and more accurate analysis of trends, we would need data from the current year, preferably collected for an entire year to look at if trends vary during different times of year. 
 - Limited: The dataset does not contain any demographic information about the users, including gender, age, or location, which would be beneficial for marketing purposes to target specific customers
 
@@ -30,10 +31,11 @@ I will import the data set from Kaggle into RStudio where I can clean, filter, a
 ## Data Preparation
 1. load packages
 ```{r}
-suppressPackageStartupMessages(library(tidyverse))
-suppressPackageStartupMessages(library(ggplot2)) 
-suppressPackageStartupMessages(library(lubridate)) 
-suppressPackageStartupMessages(library(lm.beta))
+library(tidyverse)
+library(lubridate)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
 ```
 
 2. Load CSV files containing our data
@@ -49,51 +51,126 @@ weight <- read.csv("weightLogInfo_merged.csv")
 
 3. Identify number of participants in each data set by counting distinct IDs
 ```{r}
-n_distinct(daily_activity$Id)
-n_distinct(hourly_steps$Id)
-n_distinct(daily_sleep$Id)
+n_distinct(activity$Id)
+n_distinct(calories$Id)
+n_distinct(intensities$Id)
+n_distinct(sleep$Id)
 n_distinct(weight$Id)
+n_distinct(METs$Id)
 ```
+There is 35 participants in the activity. 34 participants in the calories, intensities and METs data sets, 23 in the sleep and only 11 in the weight data set. 11 participants is not significant to make any recommendations and conclusions based on this data
 Note: Because very few participants contributed weight data, we will exclude it from our analysis
 
-4. View and clean up the data sets
+4. Fixing Formatting
 ```{r}
-# First, the daily_sleep data
-head(daily_sleep)
-# The 12:00:00 AM time stamp on each observation is redundant so we should remove it to make the data easier to work with
-daily_sleep$SleepDay <- (gsub('12:00:00 AM', '', daily_sleep$SleepDay))
-# Renaming column
-colnames(daily_sleep)[2] = "Date"
-# View updated data
-head(daily_sleep)
+# intensities
+intensities$ActivityHour=as.POSIXct(intensities$ActivityHour, format="%m/%d/%Y %I:%M:%S %p", tz=Sys.timezone())
+intensities$time <- format(intensities$ActivityHour, format = "%H:%M:%S")
+intensities$date <- format(intensities$ActivityHour, format = "%m/%d/%y")
+# calories
+calories$ActivityHour=as.POSIXct(calories$ActivityHour, format="%m/%d/%Y %I:%M:%S %p", tz=Sys.timezone())
+calories$time <- format(calories$ActivityHour, format = "%H:%M:%S")
+calories$date <- format(calories$ActivityHour, format = "%m/%d/%y")
+# activity
+activity$ActivityDate=as.POSIXct(activity$ActivityDate, format="%m/%d/%Y", tz=Sys.timezone())
+activity$date <- format(activity$ActivityDate, format = "%m/%d/%y")
+# sleep
+sleep$SleepDay=as.POSIXct(sleep$SleepDay, format="%m/%d/%Y %I:%M:%S %p", tz=Sys.timezone())
+sleep$date <- format(sleep$SleepDay, format = "%m/%d/%y"))
+# METs
+METs$ActivityMinute=as.POSIXct(METs$ActivityMinute, format="%m/%d/%Y", tz=Sys.timezone())
+METs$ActivityMinute <- format(METs$ActivityMinute, format = "%m/%d/%y")
 ```
+5. Let’s have a look at summary statistics of the data sets
+```{r}
+# activity
+activity %>%  
+  select(TotalSteps,
+         TotalDistance,
+         SedentaryMinutes, Calories) %>%
+  summary()
+# explore num of active minutes per category
+activity %>%
+  select(VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes) %>%
+  summary()
+# calories
+calories %>%
+  select(Calories) %>%
+  summary()
+# sleep
+sleep %>%
+  select(TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed) %>%
+  summary()
+# weight
+weight %>%
+  select(WeightKg, BMI) %>%
+  summary()
+# METs
+METs %>%
+  select(METs) %>%
+  summary()
+```
+ Summary Activity
+| Statistic   | Total Steps | Total Distance | Sedentary Minutes | Calories |
+|-------------|-------------|----------------|--------------------|----------|
+| Min         | 0           | 0.000          | 32.0              | 0        |
+| 1st Qu.     | 1988        | 1.410          | 728.0             | 1776     |
+| Median      | 5986        | 4.090          | 1057.0            | 2062     |
+| Mean        | 6547        | 4.664          | 995.3             | 2189     |
+| 3rd Qu.     | 10198       | 7.160          | 1285.0            | 2667     |
+| Max         | 28497       | 27.530         | 1440.0            | 4562     |
 
-```{r}
-# Next, the daily_activity data
-head(daily_activity)
-# The LoggedActivitiesDistance and SedentaryActiveDistance columns don't provide much information
-#   so we will not use them in our analysis and can remove them
-daily_activity <- daily_activity[c(-6, -10)]
-# Renaming column
-colnames(daily_activity)[2] = "Date"
-# View updated Data
-head(daily_activity)
-```
+| Statistic   | Total Steps | Total Distance | Sedentary Minutes | Calories |
+|-------------|-------------|----------------|--------------------|----------|
+| Min         | 0           | 0.000          | 32.0              | 0        |
+| 1st Qu.     | 1988        | 1.410          | 728.0             | 1776     |
+| Median      | 5986        | 4.090          | 1057.0            | 2062     |
+| Mean        | 6547        | 4.664          | 995.3             | 2189     |
+| 3rd Qu.     | 10198       | 7.160          | 1285.0            | 2667     |
+| Max         | 28497       | 27.530         | 1440.0            | 4562     |
 
-```{r}
-# Finally, the hourly_steps data
-head(hourly_steps)
-# In this case, the time associated with the date is relevant so we don't want to remove it,
-#   but the data may be easier to work with if we separate it into it's own column
-hourly_steps <- hourly_steps %>% separate(ActivityHour, c("Date", "Hour"), sep = "^\\S*\\K")
-# View the updated dataframe
-head(hourly_steps)
-```
-Because the Id variable is currently numerical but should be treated as nominal,we need to change how it is formatted in each data set.
-```{r}
-daily_activity$Id <- as.character(daily_activity$Id)
-daily_sleep$Id <- as.character(daily_sleep$Id)
-hourly_steps$Id <- as.character(hourly_steps$Id)
+Summary Calaories  
+| Statistic   | Calories |
+|-------------|----------|
+| Min.        | 42.00    |
+| 1st Qu.     | 61.00    |
+| Median      | 77.00    |
+| Mean        | 94.27    |
+| 3rd Qu.     | 104.00   |
+| Max.        | 933.00   |
+
+Summary sleep 
+| Statistic   | Sleep    |
+|-------------|----------|
+| Min.        | 1.000    |
+| 1st Qu.     | 1.000    |
+| Median      | 1.000    |
+| Mean        | 1.086    |
+| 3rd Qu.     | 1.000    |
+| Max.        | 3.000    |
+
+Summary weight info
+| Statistic   | WeightKg | BMI   |
+|-------------|----------|-------|
+| Min.        | 53.30    | 21.45 |
+| 1st Qu.     | 61.70    | 24.10 |
+| Median      | 62.50    | 24.39 |
+| Mean        | 73.44    | 25.73 |
+| 3rd Qu.     | 85.80    | 25.76 |
+| Max.        | 129.60   | 46.17 |
+
+Summary METs       
+| Statistic   | METs   |
+|-------------|--------|
+| Min.        | 0.00   |
+| 1st Qu.     | 10.00  |
+| Median      | 10.00  |
+| Mean        | 14.24  |
+| 3rd Qu.     | 11.00  |
+| Max.        | 189.00 |
+
+Some interesting discoveries from this summary:
+
 ```
 
 ## Data Exploration
