@@ -178,7 +178,7 @@ Some interesting discoveries from this summary:
 5. Weight and BMI: The average weight is 73.44 kg with a BMI of 25.73, classified as overweight, highlighting the need for education on weight management.
 6. The relatively high average METs in this data indicates the presence of active users. However, since the minimum value is 0, it also suggests the existence of a group that is completely inactive.
 
-## Recommendations
+## Visualization
 ![](https://github.com/hasbimaulanaa/hasbi_portofolio/blob/main/Picture5.jpg?raw=true)
 
 There is a positive relationship between Very Active Minutes and Calories Burned, but at lower durations, there is considerable variability. 
@@ -187,7 +187,10 @@ This insight can be used by Bellabeat to:
 2. Provide more personalized workout recommendations based on the duration of activity that effectively burns calories.
 Bellabeat can use this insight to encourage users to increase physical activity by targeting a minimum number of steps for optimal calorie burning results.
 
+![image](https://github.com/user-attachments/assets/5347ab0a-b35d-4a22-b3f0-bf951c60e01e)
 
+Here we can clearly see the negative relationship between Sedentary Minutes and Sleep time.
+For recomendation Bellabeatapp can provide personalized recommendations based on users' sleep data to ensure they achieve optimal sleep quality (for example, reducing screen time or activities that increase stress before bedtime).
 
 
 
