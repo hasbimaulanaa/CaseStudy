@@ -192,48 +192,10 @@ Bellabeat can use this insight to encourage users to increase physical activity 
 Here we can clearly see the negative relationship between Sedentary Minutes and Sleep time.
 For recomendation Bellabeatapp can provide personalized recommendations based on users' sleep data to ensure they achieve optimal sleep quality (for example, reducing screen time or activities that increase stress before bedtime).
 
+![image](https://github.com/hasbimaulanaa/hasbi_portofolio/blob/main/Picture7.jpg?raw=true)
 
-
-4. Average steps per hour:
-```{r}
-ggplot(mean_steps, aes(x = Hour, y = mean_steps)) +
-  geom_col(aes(reorder(Hour, +mean_steps), mean_steps)) +
-  theme(axis.text.x = element_text(angle = 90)) +
-  labs(title = "Average Steps Taken per Hour of Day",
-       x = "Hour", y = "Average Steps")
-```
-
-We can see that the most steps were taken in the evening, from 5-7pm, and the least steps in the middle of the night, between 12-4am.
-
-4. I'm going to combine two datasets I created previously, activity_id and steps_byId, in order to find new relationships between variables. 
-```{r}
-combined_data <- merge(activity_id, steps_byId, by = "Id")
-
-# Putting just the numerical variables into a separate dataframe, then running a correlation matrix
-num_data <- combined_data[-1]
-cor(num_data)
-
-# Based on the correlation matrix, there is little correlation between the different activity levels, but there is a moderate (.7) correlation between mean steps taken and very active minutes.
-
-ggplot(combined_data, aes(x = mean_steps_id, y = sum_very)) + 
-  geom_point() +
-  labs(title = "Average Steps Taken in a Day Compared to Very Active Minutes",
-       x = "Average Steps", y = "Very Active Minutes")
-```
-
-We can see a moderate upwards trend of "very active minutes" increasing as average steps in a day increases. 
-
-5. I completed additional visualizations in Tableau, which can be viewed here: [Bellabeat Dashboard - Tableau](https://public.tableau.com/views/BellabeatCaseStudy_16572546536690/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link)
-
-The descriptive statistical analyses and visualizations completed show the following smart device usage trends:
-
-* Sedentary minutes took up the majority of participants' days and were fairly consistent throughout the week.
-* Average "very active minutes" were also consistent throughout the week at around 20 minutes each day.
-* On average, participants slept the most on Sundays, which was also the day they took the least amount of steps
-* Participants took the most steps on Tuesdays and Saturdays.
-* On average, the fewest steps were taken at 3:00 and the most steps taken at 18:00
-* On average, participants slept about 390 minues, or 6.5 hours per night
-* Users who take more steps per day are more likely to engage in "very active minutes"
+There is a strong positive relationship between the number of steps (Total Steps) and calories burned (Calories Burned).
+The linear regression line displayed shows the trend that the more steps taken, the higher the calories burned, with the influence of body weight also being relevant.
 
 ## Recommendations
 How can these trends help influence Bellabeat marketing strategy?
