@@ -177,149 +177,19 @@ Some interesting discoveries from this summary:
 4. Low Sleep Duration: The average sleep sessions recorded are 1.08 sessions with a median of 1 session per day, suggesting possible data inaccuracies or incomplete sleep tracking.
 5. Weight and BMI: The average weight is 73.44 kg with a BMI of 25.73, classified as overweight, highlighting the need for education on weight management.
 6. The relatively high average METs in this data indicates the presence of active users. However, since the minimum value is 0, it also suggests the existence of a group that is completely inactive.
-```
 
-## Visualization
-![Deskripsi Gambar](https://github.com/hasbimaulanaa/hasbi_portofolio/blob/main/image.png?raw=true)
+## Recommendations
+![](https://github.com/hasbimaulanaa/hasbi_portofolio/blob/main/Picture5.jpg?raw=true)
 
+There is a positive relationship between Very Active Minutes and Calories Burned, but at lower durations, there is considerable variability. 
+This insight can be used by Bellabeat to: 
+1. Encourage users to increase physical activity with a minimum target for very active minutes to achieve optimal calorie burn results.
+2. Provide more personalized workout recommendations based on the duration of activity that effectively burns calories.
 
-1. Graph variables of interest, check for outliers in the data
-```{r}
-summary(daily_activity$TotalSteps)
-ggplot(daily_activity, aes(x = TotalSteps)) +
-  geom_boxplot()
-# Most of the daily total steps appear to be around 4000-11000.
-#   There appear to be possible outliers on the high end
-
-steps_upper <- quantile(daily_activity$TotalSteps, .9985, na.rm = TRUE)
-# This shows that 99.85% of the observations are at 28,680 or below. 
-# Values above this number are more than 3 standard deviations from the mean, 
-#   indicating they are outliers. 
-
-daily_activity <- subset(daily_activity, TotalSteps <= 28680)
-# 2 outliers were removed
-
-```
-
-2. Extract more information by running descriptive statistics
-
-#### Sleep Data
-
-* What is the average amount of sleep for each participant?
-```{r}
-mean_sleep <- daily_sleep %>%
-  group_by(Id) %>%
-  summarize(mean_sleep = mean(TotalMinutesAsleep)) %>%
-  select(Id, mean_sleep) %>%
-  arrange(mean_sleep) %>%
-  as.data.frame()
-head(mean_sleep)
-  
-```
-
-
-* What percent of the time did participants actually spend sleeping while laying in bed?
-```{r}
-daily_sleep %>%
-  group_by(Id) %>%
-  mutate(percent_sleep = (TotalMinutesAsleep/TotalTimeInBed)*100) %>%
-  select(Id, percent_sleep) %>%
-  summarize(avg_persleep = mean(percent_sleep)) %>%
-  arrange(avg_persleep) %>%
-  mutate_if(is.numeric, round, 2)
-
-# Most participants slept for at least 90% of the time they spent in bed, with
-#   only 4 participants spending a smaller percent of time sleeping, the lowest
-#   being 63.37%
-```
-
-#### Activity Levels
-
-* Summary stats of different activity levels:
-```{r}
-suppressPackageStartupMessages(library(psych))
-
-activity_level <- daily_activity[9:12]
-describe(activity_level)
-
-```
-
-* Activity levels by participant
-```{r}
-activity_id <- daily_activity %>%
-  group_by(Id) %>%
-  summarize(sum_very = sum(VeryActiveMinutes),
-            sum_fairly = sum(FairlyActiveMinutes),
-            sum_lightly = sum(LightlyActiveMinutes),
-            sum_sed = sum(SedentaryMinutes)) %>%
-  select(Id, sum_very, sum_fairly, sum_lightly, sum_sed) %>%
-  as.data.frame()
-head(activity_id)
-```
-
-#### Steps  
-
-* On average, during which hour of the day were the most steps taken?
-```{r}
-hourly_steps %>%
-  group_by(Hour) %>%
-  summarize(mean_steps = mean(StepTotal)) %>%
-  select(Hour, mean_steps) %>%
-  arrange(desc(mean_steps)) %>%
-  head(1)
-# Answer: 6:00PM with an average of about 600 steps
-# Creating a dataframe with average hourly steps for later visualization
-mean_steps <- hourly_steps %>%
-  group_by(Hour) %>%
-  summarize(mean_steps = mean(StepTotal)) %>%
-  select(Hour, mean_steps) %>%
-  arrange(desc(Hour)) %>%
-  as.data.frame()
-```
-
-* What is the mean and standard deviation for total steps taken by participant?
-```{r}
-steps_byId <- hourly_steps %>%
-  group_by(Id) %>%
-  summarize(mean_steps_id = mean(StepTotal), sd_steps_id = sd(StepTotal)) %>%
-  mutate_if(is.numeric, round, 2) %>%
-  as.data.frame()
-head(steps_byId)
-```
-
-
-## Data Visualization
-
-1. Relationship between steps taken in a day and sedentary minutes:
-```{r message=FALSE}
-ggplot(data=daily_activity, aes(x=TotalSteps, y=SedentaryMinutes)) + 
-  geom_point() + 
-  geom_smooth() + 
-  labs(title="Total Steps vs. Sedentary Minutes",
-       x = "Steps", y = "Minutes")
-```
-
-There appears to be no correlation between total daily steps taken and sedentary minutes. 
-We can confirm with a simple linear regression:
-```{r}
-sed_steps_lr <-lm(SedentaryMinutes ~ TotalSteps, daily_activity)
-summary(sed_steps_lr)
-```
 
 Results confirm little correlation, with an r^2 value of .11
 
-2. Average amount of time participants slept each night during the course of the study:
-```{r}
-# Graph the results
-options(scipen = 999)
-ggplot(mean_sleep, aes(x = Id, y = mean_sleep)) +
-  geom_col(aes(reorder(Id, +mean_sleep), y = mean_sleep)) +
-  labs(title = "Average Minutes of Sleep", x = "Participant Id", y = "Minutes") +
-  theme(axis.text.x = element_text(angle = 90)) +
-  geom_hline(yintercept = mean(mean_sleep$mean_sleep), color = "red")
-```
 
-The graph shows the average sleep of each participant individually, as well as how their sleep compares to the overall average across all participants. 
 
 3. Average steps per hour:
 ```{r}
