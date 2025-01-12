@@ -197,6 +197,10 @@ For recomendation Bellabeatapp can provide personalized recommendations based on
 There is a strong positive relationship between the number of steps (Total Steps) and calories burned (Calories Burned).
 The linear regression line displayed shows the trend that the more steps taken, the higher the calories burned, with the influence of body weight also being relevant.
 
+![image](https://github.com/hasbimaulanaa/hasbi_portofolio/blob/main/picture8.png?raw=true)
+
+
+
 ## Recommendations
 How can these trends help influence Bellabeat marketing strategy?
 
