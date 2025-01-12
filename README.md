@@ -1,6 +1,8 @@
 # ![Deskripsi Gambar](https://github.com/hasbimaulanaa/hasbi_portofolio/blob/main/image.png?raw=true) Bellabeat Smart Device Data Analysis
 **Junior Data Analyst Portfolio Project**
 
+by Hasbi Maulana
+
 ---
 
 ## Background Information
@@ -199,6 +201,11 @@ The linear regression line displayed shows the trend that the more steps taken, 
 
 ![image](https://github.com/hasbimaulanaa/hasbi_portofolio/blob/main/picture8.png?raw=true)
 
+Insights that can be taken from the graph above are:
+1. Daily Activity Pattern: Total activity begins to increase significantly around 06:00 and peaks around noon (12:00). This shows that the majority of users tend to be more active during the day.
+2. Decreasing Nightly Activity: After 8:00 p.m., activity intensity begins to decrease, indicating that most users begin to reduce activity and rest at night.
+3. Minimal Activity Early Morning: The lowest activity intensity occurs between 00:00 to 04:00, which can be attributed to the sleep time of the majority of users.
+4. Multiple Activity Sessions: There are two significant activity peaks, namely around noon (12:00) and late afternoon (18:00-20:00), indicating that many users engage in physical activity during the day and evening.
 
 
 ## Recommendations
@@ -206,12 +213,28 @@ How can these trends help influence Bellabeat marketing strategy?
 
 We can make marketing recommendations based on what we have learned about how customers are currently using smart fitness devices:
 
-1. Very few customers utilized the weight log feature, so this does not appear to be a selling point. Focus on marketing other features such as activity, sleep, and steps tracking, and consider further research into how to make the weight log feature more marketable
+1. Promote Active Lifestyles:
+   - Highlight the importance of reducing sedentary time, as data shows an average of 995 minutes of sedentary time per day.
+   - Launch campaigns encouraging users to reach the CDC's recommended daily steps (8,000 steps) to promote a healthier lifestyle.
 
-2. Our data shows that when active, participants engaged the most in "light" activity and did not have many "very active" minutes each day. The company could add a "level up" feature in which participants can earn points based on time spent being active, with higher levels of activity earning more points. This could motivate users to engage in active minutes more often.
+2. Personalized Workout Suggestions:
+   - Develop app features providing personalized workout plans tailored to the user's activity level.
+   - Encourage users to set and track goals for 'Very Active Minutes' and reward progress.
 
-3. There's about a 1000 step decrease on Sundays compared to the other days of the week. A notification on Sunday mornings with a goal to hit a certain number of steps, along with a reward for hitting a 7-day streak could help close this gap and encourage customers to use the device all days of the week.
+3. Sleep Quality Improvement:
+   - Provide personalized sleep recommendations based on users' sleep patterns.
+   - Educate users on reducing screen time and stress before bed to improve sleep quality.
 
-4. Based on data showing the most usage around 6pm, it seems likely most users have typical work hours during the day and get most of their steps in after work. An ad targeted towards working adults focused on easily tracking steps throughout their busy days could be effective. A reminder notification around 12pm and 8pm can encourage users to increase their activity levels during other break times such as lunch and after dinner as well. 
+4. Time-Based Engagement Strategies:
+   - Launch campaigns targeting morning and evening activity peaks with motivational content.
+   - Use notifications to encourage activity during low periods (early morning and late night).
 
-5. On average, participants got less than the CDC recommended 7 hours of sleep per night. Continue marketing the device's sleep tracking feature as participants who are not getting enough sleep may want a way to track their sleep patterns. Consider marketing along with a meditation app or habit tracker. 
+5. Data-Driven Campaigns:
+   - Highlight success stories of users who improved their health using Bellabeat devices.
+   - Share visual data insights (like activity graphs) in promotional materials to inspire user engagement.
+
+6. Product Development Suggestions:
+   - Develop features that nudge users when sedentary for too long.
+   - Enhance data accuracy for sleep and weight metrics by improving tracking algorithms.
+
+By leveraging these insights, Bellabeat can design more effective marketing strategies that emphasize health improvement and personalized guidance, ultimately enhancing user engagement and retention.By leveraging these insights, Bellabeat can design more effective marketing strategies that emphasize health improvement and personalized guidance, ultimately enhancing user engagement and retention.
