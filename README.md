@@ -179,7 +179,9 @@ Some interesting discoveries from this summary:
 6. The relatively high average METs in this data indicates the presence of active users. However, since the minimum value is 0, it also suggests the existence of a group that is completely inactive.
 ```
 
-## Data Exploration
+## Visualization
+![Deskripsi Gambar](https://github.com/hasbimaulanaa/hasbi_portofolio/blob/main/image.png?raw=true)
+
 
 1. Graph variables of interest, check for outliers in the data
 ```{r}
