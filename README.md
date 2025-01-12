@@ -1,4 +1,4 @@
-# 📊 Bellabeat Smart Device Data Analysis
+# ![Deskripsi Gambar](https://github.com/hasbimaulanaa/hasbi_portofolio/blob/main/image.png?raw=true) Bellabeat Smart Device Data Analysis
 **Junior Data Analyst Portfolio Project**
 
 ---
@@ -120,6 +120,7 @@ METs %>%
 | 3rd Qu.     | 10198       | 7.160          | 1285.0            | 2667     |
 | Max         | 28497       | 27.530         | 1440.0            | 4562     |
 
+Intensities
 | Statistic   | Total Steps | Total Distance | Sedentary Minutes | Calories |
 |-------------|-------------|----------------|--------------------|----------|
 | Min         | 0           | 0.000          | 32.0              | 0        |
@@ -170,7 +171,12 @@ Summary METs
 | Max.        | 189.00 |
 
 Some interesting discoveries from this summary:
-
+1. High Sedentary Time: An average of 995 minutes or approximately 16.5 hours per day is spent in a sedentary state, which needs to be reduced to improve overall health.
+2. Suboptimal Daily Steps: The average daily steps are 6,547, still below the CDC recommendation of 8,000 steps per day for optimal health benefits.
+3. Calories Burned: The average calories burned are 2,189 with a significant variation up to 4,562 calories, indicating differences in activity levels among users.
+4. Low Sleep Duration: The average sleep sessions recorded are 1.08 sessions with a median of 1 session per day, suggesting possible data inaccuracies or incomplete sleep tracking.
+5. Weight and BMI: The average weight is 73.44 kg with a BMI of 25.73, classified as overweight, highlighting the need for education on weight management.
+6. The relatively high average METs in this data indicates the presence of active users. However, since the minimum value is 0, it also suggests the existence of a group that is completely inactive.
 ```
 
 ## Data Exploration
