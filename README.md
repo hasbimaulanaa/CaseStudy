@@ -185,13 +185,13 @@ There is a positive relationship between Very Active Minutes and Calories Burned
 This insight can be used by Bellabeat to: 
 1. Encourage users to increase physical activity with a minimum target for very active minutes to achieve optimal calorie burn results.
 2. Provide more personalized workout recommendations based on the duration of activity that effectively burns calories.
+Bellabeat can use this insight to encourage users to increase physical activity by targeting a minimum number of steps for optimal calorie burning results.
 
 
-Results confirm little correlation, with an r^2 value of .11
 
 
 
-3. Average steps per hour:
+4. Average steps per hour:
 ```{r}
 ggplot(mean_steps, aes(x = Hour, y = mean_steps)) +
   geom_col(aes(reorder(Hour, +mean_steps), mean_steps)) +
