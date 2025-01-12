@@ -113,14 +113,15 @@ METs %>%
   summary()
 ```
  Summary Activity
-| Statistic   | Total Steps | Total Distance | Sedentary Minutes | Calories |
-|-------------|-------------|----------------|--------------------|----------|
-| Min         | 0           | 0.000          | 32.0              | 0        |
-| 1st Qu.     | 1988        | 1.410          | 728.0             | 1776     |
-| Median      | 5986        | 4.090          | 1057.0            | 2062     |
-| Mean        | 6547        | 4.664          | 995.3             | 2189     |
-| 3rd Qu.     | 10198       | 7.160          | 1285.0            | 2667     |
-| Max         | 28497       | 27.530         | 1440.0            | 4562     |
+| Statistic      | Total Steps | Total Distance (km) | Sedentary Minutes | Calories |
+|----------------|-------------|----------------------|-------------------|----------|
+| **Min**        | 0           | 0.000                | 32.0              | 0        |
+| **1st Qu.**    | 1988        | 1.410                | 728.0             | 1776     |
+| **Median**     | 5986        | 4.090                | 1057.0            | 2062     |
+| **Mean**       | 6547        | 4.664                | 995.3             | 2189     |
+| **3rd Qu.**    | 10198       | 7.160                | 1285.0            | 2667     |
+| **Max**        | 28497       | 27.530               | 1440.0            | 4562     |
+
 
 Intensities
 | Statistic   | Total Steps | Total Distance | Sedentary Minutes | Calories |
