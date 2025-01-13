@@ -146,7 +146,7 @@ WeightKg           BMI
  3rd Qu.: 85.80   3rd Qu.:25.76  
  Max.   :129.60   Max.   :46.17 
 
- # METs       
+METs       
  Min.   :  0.00  
  1st Qu.: 10.00  
  Median : 10.00  
