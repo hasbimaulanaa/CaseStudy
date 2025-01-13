@@ -113,7 +113,6 @@ METs %>%
   summary()
 ```
 6. Summary
-```{r}
 TotalSteps     TotalDistance   SedentaryMinutes   Calories   
  Min.   :    0   Min.   : 0.000   Min.   :  32.0   Min.   :   0  
  1st Qu.: 1988   1st Qu.: 1.410   1st Qu.: 728.0   1st Qu.:1776  
@@ -153,7 +152,7 @@ METs
  Mean   : 14.24  
  3rd Qu.: 11.00  
  Max.   :189.00 
-```
+
 Some interesting discoveries from this summary:
 1. High Sedentary Time: An average of 995 minutes or approximately 16.5 hours per day is spent in a sedentary state, which needs to be reduced to improve overall health.
 2. Suboptimal Daily Steps: The average daily steps are 6,547, still below the CDC recommendation of 8,000 steps per day for optimal health benefits.
