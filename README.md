@@ -113,6 +113,8 @@ METs %>%
   summary()
 ```
 6. Summary
+```{r}
+# activity
 TotalSteps     TotalDistance   SedentaryMinutes   Calories   
  Min.   :    0   Min.   : 0.000   Min.   :  32.0   Min.   :   0  
  1st Qu.: 1988   1st Qu.: 1.410   1st Qu.: 728.0   1st Qu.:1776  
@@ -120,7 +122,7 @@ TotalSteps     TotalDistance   SedentaryMinutes   Calories
  Mean   : 6547   Mean   : 4.664   Mean   : 995.3   Mean   :2189  
  3rd Qu.:10198   3rd Qu.: 7.160   3rd Qu.:1285.0   3rd Qu.:2667  
  Max.   :28497   Max.   :27.530   Max.   :1440.0   Max.   :4562
-
+# explore num of active minutes per category
 VeryActiveMinutes FairlyActiveMinutes LightlyActiveMinutes
  Min.   :  0.00    Min.   :  0.00      Min.   :  0.0       
  1st Qu.:  0.00    1st Qu.:  0.00      1st Qu.: 64.0       
@@ -128,15 +130,14 @@ VeryActiveMinutes FairlyActiveMinutes LightlyActiveMinutes
  Mean   : 16.62    Mean   : 13.07      Mean   :170.1       
  3rd Qu.: 25.00    3rd Qu.: 16.00      3rd Qu.:257.0       
  Max.   :202.00    Max.   :660.00      Max.   :720.0
-
-Calories     
+# calories
  Min.   : 42.00  
  1st Qu.: 61.00  
  Median : 77.00  
  Mean   : 94.27  
  3rd Qu.:104.00  
  Max.   :933.00
-
+# weight
 WeightKg           BMI       
  Min.   : 53.30   Min.   :21.45  
  1st Qu.: 61.70   1st Qu.:24.10  
@@ -144,14 +145,15 @@ WeightKg           BMI
  Mean   : 73.44   Mean   :25.73  
  3rd Qu.: 85.80   3rd Qu.:25.76  
  Max.   :129.60   Max.   :46.17 
-
+# METs
 METs       
  Min.   :  0.00  
  1st Qu.: 10.00  
  Median : 10.00  
  Mean   : 14.24  
  3rd Qu.: 11.00  
- Max.   :189.00 
+ Max.   :189.00
+```
 
 Some interesting discoveries from this summary:
 1. High Sedentary Time: An average of 995 minutes or approximately 16.5 hours per day is spent in a sedentary state, which needs to be reduced to improve overall health.
