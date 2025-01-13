@@ -137,6 +137,14 @@ VeryActiveMinutes FairlyActiveMinutes LightlyActiveMinutes
  Mean   : 94.27  
  3rd Qu.:104.00  
  Max.   :933.00
+# sleep
+ TotalSleepRecords TotalMinutesAsleep TotalTimeInBed 
+ Min.   :1.000     Min.   : 58.0      Min.   : 61.0  
+ 1st Qu.:1.000     1st Qu.:361.0      1st Qu.:403.0  
+ Median :1.000     Median :433.0      Median :463.0  
+ Mean   :1.119     Mean   :419.5      Mean   :458.6  
+ 3rd Qu.:1.000     3rd Qu.:490.0      3rd Qu.:526.0  
+ Max.   :3.000     Max.   :796.0      Max.   :961.0 
 # weight
 WeightKg           BMI       
  Min.   : 53.30   Min.   :21.45  
