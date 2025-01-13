@@ -112,7 +112,18 @@ METs %>%
   select(METs) %>%
   summary()
 ```
+# Summary
+```{r}
+|                       | Very Active Minutes | Fairly Active Minutes | Lightly Active Minutes |
+|-----------------------|---------------------|-----------------------|------------------------|
+| **Min**               | 0.00                | 0.00                  | 0.00                   |
+| **1st Qu.**           | 0.00                | 0.00                  | 64.00                  |
+| **Median**            | 0.00                | 1.00                  | 181.00                 |
+| **Mean**              | 16.62               | 13.07                 | 170.10                 |
+| **3rd Qu.**           | 25.00               | 16.00                 | 257.00                 |
+| **Max**               | 202.00              | 660.00                | 720.00                 |
 
+```
 Intensities
 |                       | Very Active Minutes | Fairly Active Minutes | Lightly Active Minutes |
 |-----------------------|---------------------|-----------------------|------------------------|
