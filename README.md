@@ -114,28 +114,46 @@ METs %>%
 ```
 # Summary
 ```{r}
-|                       | Very Active Minutes | Fairly Active Minutes | Lightly Active Minutes |
-|-----------------------|---------------------|-----------------------|------------------------|
-| **Min**               | 0.00                | 0.00                  | 0.00                   |
-| **1st Qu.**           | 0.00                | 0.00                  | 64.00                  |
-| **Median**            | 0.00                | 1.00                  | 181.00                 |
-| **Mean**              | 16.62               | 13.07                 | 170.10                 |
-| **3rd Qu.**           | 25.00               | 16.00                 | 257.00                 |
-| **Max**               | 202.00              | 660.00                | 720.00                 |
+# TotalSteps     TotalDistance   SedentaryMinutes   Calories   
+ Min.   :    0   Min.   : 0.000   Min.   :  32.0   Min.   :   0  
+ 1st Qu.: 1988   1st Qu.: 1.410   1st Qu.: 728.0   1st Qu.:1776  
+ Median : 5986   Median : 4.090   Median :1057.0   Median :2062  
+ Mean   : 6547   Mean   : 4.664   Mean   : 995.3   Mean   :2189  
+ 3rd Qu.:10198   3rd Qu.: 7.160   3rd Qu.:1285.0   3rd Qu.:2667  
+ Max.   :28497   Max.   :27.530   Max.   :1440.0   Max.   :4562
 
+# VeryActiveMinutes FairlyActiveMinutes LightlyActiveMinutes
+ Min.   :  0.00    Min.   :  0.00      Min.   :  0.0       
+ 1st Qu.:  0.00    1st Qu.:  0.00      1st Qu.: 64.0       
+ Median :  0.00    Median :  1.00      Median :181.0       
+ Mean   : 16.62    Mean   : 13.07      Mean   :170.1       
+ 3rd Qu.: 25.00    3rd Qu.: 16.00      3rd Qu.:257.0       
+ Max.   :202.00    Max.   :660.00      Max.   :720.0
+
+# Calories     
+ Min.   : 42.00  
+ 1st Qu.: 61.00  
+ Median : 77.00  
+ Mean   : 94.27  
+ 3rd Qu.:104.00  
+ Max.   :933.00
+
+# WeightKg           BMI       
+ Min.   : 53.30   Min.   :21.45  
+ 1st Qu.: 61.70   1st Qu.:24.10  
+ Median : 62.50   Median :24.39  
+ Mean   : 73.44   Mean   :25.73  
+ 3rd Qu.: 85.80   3rd Qu.:25.76  
+ Max.   :129.60   Max.   :46.17 
+
+ # METs       
+ Min.   :  0.00  
+ 1st Qu.: 10.00  
+ Median : 10.00  
+ Mean   : 14.24  
+ 3rd Qu.: 11.00  
+ Max.   :189.00 
 ```
-Intensities
-|                       | Very Active Minutes | Fairly Active Minutes | Lightly Active Minutes |
-|-----------------------|---------------------|-----------------------|------------------------|
-| **Min**               | 0.00                | 0.00                  | 0.00                   |
-| **1st Qu.**           | 0.00                | 0.00                  | 64.00                  |
-| **Median**            | 0.00                | 1.00                  | 181.00                 |
-| **Mean**              | 16.62               | 13.07                 | 170.10                 |
-| **3rd Qu.**           | 25.00               | 16.00                 | 257.00                 |
-| **Max**               | 202.00              | 660.00                | 720.00                 |
-
-
-
 Some interesting discoveries from this summary:
 1. High Sedentary Time: An average of 995 minutes or approximately 16.5 hours per day is spent in a sedentary state, which needs to be reduced to improve overall health.
 2. Suboptimal Daily Steps: The average daily steps are 6,547, still below the CDC recommendation of 8,000 steps per day for optimal health benefits.
