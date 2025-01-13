@@ -112,16 +112,6 @@ METs %>%
   select(METs) %>%
   summary()
 ```
- Summary Activity
-| Statistic      | Total Steps | Total Distance (km) | Sedentary Minutes | Calories |
-|----------------|-------------|----------------------|-------------------|----------|
-| **Min**        | 0           | 0.000                | 32.0              | 0        |
-| **1st Qu.**    | 1988        | 1.410                | 728.0             | 1776     |
-| **Median**     | 5986        | 4.090                | 1057.0            | 2062     |
-| **Mean**       | 6547        | 4.664                | 995.3             | 2189     |
-| **3rd Qu.**    | 10198       | 7.160                | 1285.0            | 2667     |
-| **Max**        | 28497       | 27.530               | 1440.0            | 4562     |
-
 
 Intensities
 |                       | Very Active Minutes | Fairly Active Minutes | Lightly Active Minutes |
@@ -134,45 +124,6 @@ Intensities
 | **Max**               | 202.00              | 660.00                | 720.00                 |
 
 
-Summary Calaories  
-| Statistic   | Calories |
-|-------------|----------|
-| Min.        | 42.00    |
-| 1st Qu.     | 61.00    |
-| Median      | 77.00    |
-| Mean        | 94.27    |
-| 3rd Qu.     | 104.00   |
-| Max.        | 933.00   |
-
-Summary sleep 
-| Statistic   | Sleep    |
-|-------------|----------|
-| Min.        | 1.000    |
-| 1st Qu.     | 1.000    |
-| Median      | 1.000    |
-| Mean        | 1.086    |
-| 3rd Qu.     | 1.000    |
-| Max.        | 3.000    |
-
-Summary weight info
-| Statistic   | WeightKg | BMI   |
-|-------------|----------|-------|
-| Min.        | 53.30    | 21.45 |
-| 1st Qu.     | 61.70    | 24.10 |
-| Median      | 62.50    | 24.39 |
-| Mean        | 73.44    | 25.73 |
-| 3rd Qu.     | 85.80    | 25.76 |
-| Max.        | 129.60   | 46.17 |
-
-Summary METs       
-| Statistic   | METs   |
-|-------------|--------|
-| Min.        | 0.00   |
-| 1st Qu.     | 10.00  |
-| Median      | 10.00  |
-| Mean        | 14.24  |
-| 3rd Qu.     | 11.00  |
-| Max.        | 189.00 |
 
 Some interesting discoveries from this summary:
 1. High Sedentary Time: An average of 995 minutes or approximately 16.5 hours per day is spent in a sedentary state, which needs to be reduced to improve overall health.
