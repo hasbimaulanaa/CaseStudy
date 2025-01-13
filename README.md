@@ -112,9 +112,9 @@ METs %>%
   select(METs) %>%
   summary()
 ```
-# Summary
+6. Summary
 ```{r}
-# TotalSteps     TotalDistance   SedentaryMinutes   Calories   
+TotalSteps     TotalDistance   SedentaryMinutes   Calories   
  Min.   :    0   Min.   : 0.000   Min.   :  32.0   Min.   :   0  
  1st Qu.: 1988   1st Qu.: 1.410   1st Qu.: 728.0   1st Qu.:1776  
  Median : 5986   Median : 4.090   Median :1057.0   Median :2062  
@@ -122,7 +122,7 @@ METs %>%
  3rd Qu.:10198   3rd Qu.: 7.160   3rd Qu.:1285.0   3rd Qu.:2667  
  Max.   :28497   Max.   :27.530   Max.   :1440.0   Max.   :4562
 
-# VeryActiveMinutes FairlyActiveMinutes LightlyActiveMinutes
+VeryActiveMinutes FairlyActiveMinutes LightlyActiveMinutes
  Min.   :  0.00    Min.   :  0.00      Min.   :  0.0       
  1st Qu.:  0.00    1st Qu.:  0.00      1st Qu.: 64.0       
  Median :  0.00    Median :  1.00      Median :181.0       
@@ -130,7 +130,7 @@ METs %>%
  3rd Qu.: 25.00    3rd Qu.: 16.00      3rd Qu.:257.0       
  Max.   :202.00    Max.   :660.00      Max.   :720.0
 
-# Calories     
+Calories     
  Min.   : 42.00  
  1st Qu.: 61.00  
  Median : 77.00  
@@ -138,7 +138,7 @@ METs %>%
  3rd Qu.:104.00  
  Max.   :933.00
 
-# WeightKg           BMI       
+WeightKg           BMI       
  Min.   : 53.30   Min.   :21.45  
  1st Qu.: 61.70   1st Qu.:24.10  
  Median : 62.50   Median :24.39  
